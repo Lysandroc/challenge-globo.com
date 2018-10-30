@@ -1,0 +1,20 @@
+{
+  "name": "paredao",
+  "version": "1.0.0",
+  "description": "Votação dos participantes do BBB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SelecaoGlobocom/Lysandro_Braga.git"
+  },
+  "author": "Lysandro Braga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SelecaoGlobocom/Lysandro_Braga/issues"
+  },
+  "homepage": "https://github.com/SelecaoGlobocom/Lysandro_Braga#readme"
+}
