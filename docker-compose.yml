@@ -5,12 +5,14 @@ services:
   app:
     volumes:
      - .:/app
-     - /app/node_modules
+     - /node_modules
     build: .
     ports:
-     - "3001:8080"
+     - "3001:8081"
     environment:
      - MONGODB_URI=mongodb://mongo:27017/paredao 
+     - PORT=3001
+     - ENV=development
     links:
      - mongo 
     depends_on: 

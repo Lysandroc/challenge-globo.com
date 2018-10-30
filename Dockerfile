@@ -1,13 +1,14 @@
 FROM node:8-slim
 
 WORKDIR /app
+ENV NODE_ENV development
 
-COPY . /app
-COPY .enviroment /app/.enviroment
 COPY package.json /app/package.json
 
-ENV NODE_ENV development
-RUN npm install
+RUN npm install --production
+
+COPY . /app
 
 CMD ["npm","start"]
 
+EXPOSE 8080
