@@ -1,13 +1,14 @@
 const path = require('path');
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const outputDirectory = 'dist';
 
 module.exports = {
   mode: 'none',
   entry: './src/client',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:3002/dist'
+    path: path.resolve(__dirname, outputDirectory)
   },
   module: {
     rules: [
@@ -29,6 +30,17 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css']
   },
   devServer: {
-    port: 3002
+    port: 8080,
+    open: true,
+    proxy: {
+      '/': 'http://localhost:3001/dist/index.html',
+      '/api': 'http://localhost:3001/'
+    }
   },
+  plugins: [
+    new CleanWebpackPlugin([outputDirectory]),
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    })
+  ]
 }
