@@ -5,12 +5,11 @@ ENV NODE_ENV development
 
 COPY package.json /app/package.json
 
-RUN npm install -g pm2
+RUN npm i -g nodemon
 RUN npm install
 
 COPY . /app
 
-# CMD ["npm","start"]
-CMD ["pm2", "start", "--no-daemon", "start.js"]
+CMD ["npm","start"]
 
 EXPOSE 3001
