@@ -1,12 +1,11 @@
 import express from 'express';
 import compression from 'compression';
 import chalk from 'chalk';
-import react from 'react';
 import route from './routes';
 import { createEngine} from 'express-react-views';
 
 const app = express();
-
+  
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');

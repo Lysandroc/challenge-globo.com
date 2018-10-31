@@ -8,7 +8,7 @@ services:
      - /node_modules
     build: .
     ports:
-     - "3001:8081"
+     - "8080:3001"
     environment:
      - MONGODB_URI=mongodb://mongo:27017/paredao 
      - PORT=3001
