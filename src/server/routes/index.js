@@ -1,5 +1,7 @@
-import participante from './participante';
+import participanteRouter from './participanteRouter';
+import paredaoRouter from './paredaoRouter';
 
 module.exports = (router) => {
-  participante(router);
+  participanteRouter(router);
+  paredaoRouter(router);
 };

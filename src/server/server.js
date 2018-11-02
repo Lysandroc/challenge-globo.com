@@ -7,18 +7,25 @@ import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import router from './routes/';
+import helmet from 'helmet';
+import routes from './routes';
 
 const Store = connectMongo(session);
 const app = express();
+const router = express.Router();
 
 dotenv.load({ path: '.env.development' });
 
 app.set('port', process.env.PORT);
 
+routes(router);
+app.disable('etag');
 app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('dist'));
+app.use(compression());
 app.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
@@ -39,10 +46,6 @@ mongoose.connection.on('error', (err) => {
   console.log('Certifique-se se o Mongo está sendo executado.');
   process.exit();
 });
-
-app.use(express.static('dist'));
-app.use(compression());
-app.disable('etag');
 
 app.use('/api', router);
 

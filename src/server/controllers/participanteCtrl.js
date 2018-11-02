@@ -1,7 +1,7 @@
-import Participante from '../models/Participante';
+import Participante from '../models/participanteModel';
 
 module.exports.getAllParticipantes = (req, res, next) => {
-  Participante.find({}, (err, participantes) => {
+  Participante.find({ tipoDocumento: 'participante' }, (err, participantes) => {
     if (err) {
       res.send(err);
     } else if (!participantes) {
@@ -9,6 +9,7 @@ module.exports.getAllParticipantes = (req, res, next) => {
     } else {
       res.send(participantes);
     }
+    next();
   });
 };
 
@@ -24,7 +25,7 @@ module.exports.getParticipanteById = (req, res, next) => {
   }).catch(next);
 };
 
-module.exports.addParticipantes = (req, res, next) => {
+module.exports.addParticipante = (req, res, next) => {
   new Participante(req.body).save((err, newParticipante) => {
     if (err) {
       res.send(err);

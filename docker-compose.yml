@@ -10,9 +10,10 @@ services:
     ports:
      - "8080:3001"
     environment:
-     - MONGODB_URI=mongodb://mongo:27017/paredao 
+     - MONGODB_URI=mongodb://mongo:27017/app 
      - PORT=3001
      - ENV=development
+     - SESSION_SECRET=bbb2018
     links:
      - mongo 
     depends_on: 
