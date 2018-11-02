@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const ParticipanteSchema = new mongoose.Schema({
-  cpf: { type: String, unique: true },
   nome: String,
   idade: Number,
   tipoDocumento: { type: String, default: 'participante' },

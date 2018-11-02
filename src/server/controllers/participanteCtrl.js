@@ -5,7 +5,7 @@ module.exports.getAllParticipantes = (req, res, next) => {
     if (err) {
       res.send(err);
     } else if (!participantes) {
-      res.send(400);
+      res.send(204);
     } else {
       res.send(participantes);
     }
@@ -18,7 +18,7 @@ module.exports.getParticipanteById = (req, res, next) => {
     if (err) {
       res.send(err);
     } else if (!participante) {
-      res.send(400);
+      res.send(204);
     } else {
       res.send(participante);
     }
@@ -26,6 +26,11 @@ module.exports.getParticipanteById = (req, res, next) => {
 };
 
 module.exports.addParticipante = (req, res, next) => {
+  if (req.body.tipoDocumento !== 'participante') {
+    res.send('documento inválido.');
+    next();
+  }
+
   new Participante(req.body).save((err, newParticipante) => {
     if (err) {
       res.send(err);

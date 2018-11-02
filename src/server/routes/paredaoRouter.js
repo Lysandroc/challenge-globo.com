@@ -7,9 +7,13 @@ module.exports = (router) => {
 
   // Consultar todos os paredoes
   router
-    .route('/getAllParedoes').get(paredaoCtrl.getAllParedao);
+    .route('/getAllParedoes').get(paredaoCtrl.getAllParedoes);
 
-  // Consultar especifico paredao
+  // Consultar o último paredão
+  router
+    .route('/getLastestParedao').get(paredaoCtrl.getLastestParedao);
+
+  // Consultar especifico paredão
   router
     .route('/getParedaoById/:id').get(paredaoCtrl.getParedaoById);
 };

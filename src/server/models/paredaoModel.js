@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const ParedaoSchema = new mongoose.Schema({
-  dia: { type: Date, unique: true, default: new Date() },
+  tempoInicio: { type: Date, required: true },
+  tempoFim: { type: Date, required: true },
   tipoDocumento: { type: String, default: 'paredao' },
   participantes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Participante'
+      ref: 'Participante',
     }
   ],
 }, { timestamps: true, collection: 'bbb2018' });
