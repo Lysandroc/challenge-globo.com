@@ -6,24 +6,25 @@ import bodyParser from 'body-parser';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import router from './routes/';
 
-const MongoStore = connectMongo(session);
-
+const Store = connectMongo(session);
 const app = express();
 
 dotenv.load({ path: '.env.development' });
 
-import 
 app.set('port', process.env.PORT);
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
   resave: true,
   cookie: { maxAge: 1209600000 },
-  store: new MongoStore({
+  store: new Store({
     url: process.env.MONGODB_URI,
     autoReconnect: true,
   })
@@ -40,9 +41,10 @@ mongoose.connection.on('error', (err) => {
 });
 
 app.use(express.static('dist'));
-
 app.use(compression());
 app.disable('etag');
+
+app.use('/api', router);
 
 app.listen(app.get('port'), () => {
   console.log('%s Aplicação está rodando em http://localhost:%s ☕', chalk.green('✓'), app.get('port'), app.get('env'));

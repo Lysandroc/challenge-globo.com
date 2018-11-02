@@ -9,20 +9,23 @@
     "server": "nodemon src/server/start.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "concurrently \"npm run server\" \"npm run build\"",
-    "lint": "eslint \"**/*.js\""
+    "lint": "eslint \"**/*.js\"",
+    "docker": "concurrently \"docker-compose build app\" \"docker-compose up app\""
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "compression": "^1.7.3",
     "connect-mongo": "^2.0.1",
+    "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "express-status-monitor": "^1.1.5",
     "mongoose": "^5.3.8",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.0.3"
   },
   "devDependencies": {
     "babel-runtime": "^6.26.0",

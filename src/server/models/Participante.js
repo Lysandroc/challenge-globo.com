@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-const participantesSchema = new mongoose.Schema({
+const ParticipanteSchema = new mongoose.Schema({
   cpf: { type: String, unique: true },
-  nome: String
-}, { timestamps: true });
+  nome: String,
+  idade: Number,
+  tipoDocumento: { type: String, default: 'participante' },
+}, { timestamps: true, collection: 'bbb2018' });
 
-console.log(participantesSchema);
+module.exports = mongoose.model('Participante', ParticipanteSchema);
