@@ -1,20 +1,8 @@
-import {
-  makeExecutableSchema
-} from 'graphql-tools';
-import resolvers from './resolvers';
-
-const typeDefs = `
-  type Participante {
-    _id: ID!
-    nome: String!
-    idade: Int
-  }
-  type Query {
-    allParticipantes: [Participante]
-  }
-`;
+import { makeExecutableSchema } from 'graphql-tools';
+import participanteResolver from './resolvers/participanteResolver';
+import participanteType from './types/participanteType';
 
 module.exports = makeExecutableSchema({
-  typeDefs,
-  resolvers
+  typeDefs: participanteType,
+  resolvers: participanteResolver
 });

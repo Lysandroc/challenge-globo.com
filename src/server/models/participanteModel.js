@@ -1,4 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose, { Types } from 'mongoose';
+
+const { ObjectId } = Types;
+
+// Overwrite method that return BJSON
+ObjectId.prototype.valueOf = function bjsonToString() {
+  return this.toString();
+};
 
 const ParticipanteSchema = new mongoose.Schema({
   nome: String,

@@ -1,0 +1,47 @@
+Criar um novo participante do BBB 
+mutation{
+  createParticipante(input: {
+    nome: "Lysandro",
+    idade: 24
+  })
+  {
+  	nome, 
+    idade,
+    _id
+  }
+}
+
+Consultar todos os participantes 
+{
+  getAllParticipantes {
+    idade,nome, _id
+  }
+}
+
+Consultar especifico participante
+{
+  getParticipanteById(_id: "5bdcb6fd1b2d1f1fc5ec3675") {
+    idade,nome,_id
+  }
+}
+
+Atualizar participante 
+mutation {
+  updateParticipante(_id: "5bdcb6fd1b2d1f1fc5ec3675", input: {
+    idade: 24,
+    nome: "Isaac Carioca"
+  }), {
+    _id,
+    nome,
+    idade
+  }
+}
+
+Apagar participante especifico
+mutation {
+  deleteParticipante(_id: "5bdcb6fd1b2d1f1fc5ec3675"), {
+    _id,
+    nome,
+    idade
+  }
+}
