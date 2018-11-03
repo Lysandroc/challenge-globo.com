@@ -1,4 +1,4 @@
-import Paredao from '../models/paredaoModel';
+import Paredao from '../../models/paredaoModel';
 
 module.exports.addParedao = (req, res, next) => {
   if (req.body.tipoDocumento !== 'paredao') {

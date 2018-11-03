@@ -1,4 +1,4 @@
-import Participante from '../models/participanteModel';
+import Participante from '../../models/participanteModel';
 
 module.exports.getAllParticipantes = (req, res, next) => {
   Participante.find({ tipoDocumento: 'participante' }, (err, participantes) => {

@@ -8,7 +8,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
-import routes from './routes';
+import graphqlHTTP from 'express-graphql';
+import routes from './restful/routes';
+import graphqlSchema from './graphql';
 
 const Store = connectMongo(session);
 const app = express();
@@ -47,6 +49,10 @@ mongoose.connection.on('error', (err) => {
   process.exit();
 });
 
+app.use('/graphql', graphqlHTTP({
+  schema: graphqlSchema,
+  graphiql: true
+}));
 app.use('/api', router);
 
 app.listen(app.get('port'), () => {
