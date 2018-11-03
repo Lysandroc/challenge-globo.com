@@ -23,6 +23,7 @@
     "express-graphql": "^0.7.1",
     "express-session": "^1.15.6",
     "express-status-monitor": "^1.1.5",
+    "graphql": "^14.0.2",
     "graphql-tools": "^4.0.3",
     "helmet": "^3.14.0",
     "lodash": "^4.17.11",
