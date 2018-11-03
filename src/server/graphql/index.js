@@ -1,8 +1,17 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import participanteResolver from './resolvers/participanteResolver';
-import participanteType from './types/participanteType';
+import { merge } from 'lodash';
+import { typeDefs as Participante, resolvers as participanteResolvers } from './entities/Participante';
+import { typeDefs as Paredao, resolvers as paredaoResolvers } from './entities/Paredao';
+
+const Query = `
+  type Query {
+    _empty: String
+  }
+`;
+
+const resolvers = {};
 
 module.exports = makeExecutableSchema({
-  typeDefs: participanteType,
-  resolvers: participanteResolver
+  typeDefs: [Query, Participante, Paredao],
+  resolvers: merge(resolvers, participanteResolvers, paredaoResolvers),
 });

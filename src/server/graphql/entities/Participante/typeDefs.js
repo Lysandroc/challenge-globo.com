@@ -1,12 +1,12 @@
 const typeDefs = `
+  extend type Query {
+    getParticipanteById(_id: ID!): Participante
+    getAllParticipantes: [Participante]
+  }
   type Participante {
     _id: ID!
     nome: String!
     idade: Int
-  }
-  type Query {
-    getParticipanteById(_id: ID!): Participante
-    getAllParticipantes: [Participante]
   }
   input ParticipanteInput {
     nome: String!
@@ -17,6 +17,6 @@ const typeDefs = `
     updateParticipante(_id: ID!, input: ParticipanteInput): Participante
     deleteParticipante(_id: ID!) : Participante
    }
-  `;
+`;
 
 module.exports = typeDefs;

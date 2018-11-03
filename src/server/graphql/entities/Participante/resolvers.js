@@ -1,5 +1,5 @@
 
-import Participante from '../../models/participanteModel';
+import Participante from '../../../models/participanteModel';
 
 module.exports = {
   Query: {
