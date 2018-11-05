@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import Participantes from './Participantes';
 
-const Teste = styled.a`
-  border: 2px solid black;
+const Wrapper = styled.a`
+  
 `;
 
-class App extends Component {
-    render(){
-        return <div><Teste>{'teste...'}</Teste></div>;
-    }
-}
+const App = () => (
+  <Wrapper>
+    <Participantes />
+  </Wrapper>
+);
 
 export default App;

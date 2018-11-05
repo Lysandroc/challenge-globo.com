@@ -1,4 +1,4 @@
-const typeDefs = `
+export const typeDefs = `
   scalar Date
 
   extend type Query {
@@ -6,18 +6,22 @@ const typeDefs = `
   }
   type Paredao {
     _id: ID!
-    tempoInicio: Date!
-    tempoFim: Date!
+    tempoInicio: String!
+    tempoFim: String!
     participantes: [Participante]
   }
+  input Participantes {
+    _id: String!
+  }
   input ParedaoInput {
-    nome: String!
-    idade: Int
-   }
+    tempoInicio: String!
+    tempoFim: String!
+    participantes: [Participantes]
+  }
   extend type Mutation {
     createParedao(input: ParedaoInput) : Paredao
     deleteParedao(_id: ID!) : Paredao
    }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;

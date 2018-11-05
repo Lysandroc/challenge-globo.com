@@ -1,7 +1,7 @@
 
 import Participante from '../../../models/participanteModel';
 
-module.exports = {
+export const resolver = {
   Query: {
     async getParticipanteById(root, { _id }) {
       const r = await Participante.findById(_id);
@@ -23,9 +23,17 @@ module.exports = {
       });
       return r;
     },
+    async incrementVotosParedaoParticipante(root, { _id }) {
+      const r = await Participante.findOneAndUpdate({ _id },
+        { $inc: { quantidadeVotosUltimoParedao: 1 } },
+        { new: true });
+      return r;
+    },
     async deleteParticipante(root, { _id }) {
       const r = await Participante.findOneAndRemove({ _id });
       return r;
     }
   }
 };
+
+export default resolver;

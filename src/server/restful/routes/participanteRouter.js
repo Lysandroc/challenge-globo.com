@@ -9,6 +9,10 @@ module.exports = (router) => {
   router
     .route('/getParticipanteById/:id').get(participanteCtrl.getParticipanteById);
 
+  // Incrementar votacao do participante
+  router
+    .route('/incrementarVotacaoParticipante/:id').put(participanteCtrl.incrementarVotacaoParticipante);
+
   // Adicionar um participante
   router
     .route('/addParticipante').post(participanteCtrl.addParticipante);

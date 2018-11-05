@@ -45,3 +45,37 @@ mutation {
     idade
   }
 }
+
+Consultar o ultimo paredao
+{
+  getLastestParedao {
+    _id, 
+    tempoInicio, 
+    tempoFim, 
+    participantes {
+      idade
+    }
+  }
+}
+
+//inserir paredao com participantes
+mutation {
+  createParedao (input: {
+    tempoInicio: "2018-01-10T17:48:23.602Z",
+    tempoFim: "2018-01-10T17:48:23.602Z",
+    participantes: [{
+      _id: "5be067497d147572a65542d7"
+    }, { 
+      _id: "5be0673b7d147572a65542d6"
+    }]
+  }), {
+    tempoInicio,
+    tempoFim, 
+    participantes {
+      _id, 
+      nome, 
+      idade, 
+    	quantidadeVotosUltimoParedao
+    }
+  }
+}

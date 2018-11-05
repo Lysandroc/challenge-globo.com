@@ -1,10 +1,16 @@
 import Paredao from '../../models/paredaoModel';
+import Participante from '../../models/participanteModel';
 
 module.exports.addParedao = (req, res, next) => {
   if (req.body.tipoDocumento !== 'paredao') {
     res.send('documento inválido.');
     next();
   }
+
+  // Precisa melhorar a modelagem para armazenar o historico dos votos de cada paredao
+  req.body.participantes.forEach(({ _id }) => {
+    Participante.findOneAndUpdate({ _id }, { quantidadeVotosUltimoParedao: 0 }, () => {});
+  });
 
   new Paredao(req.body).save((err, newParedao) => {
     if (err) {

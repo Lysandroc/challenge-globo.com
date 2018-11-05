@@ -10,6 +10,7 @@ ObjectId.prototype.valueOf = function bjsonToString() {
 const ParticipanteSchema = new mongoose.Schema({
   nome: String,
   idade: Number,
+  quantidadeVotosUltimoParedao: { type: Number, default: 0 },
   tipoDocumento: { type: String, default: 'participante' },
 }, { timestamps: true, collection: 'bbb2018' });
 
