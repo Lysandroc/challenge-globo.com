@@ -14,8 +14,8 @@ export const resolver = {
   },
   Mutation: {
     async createParticipante(root, { input }) {
-      const newObj = await new Participante(input).save();
-      return newObj;
+      const r = await new Participante(input).save();
+      return r;
     },
     async updateParticipante(root, { _id, input }) {
       const r = await Participante.findOneAndUpdate({ _id }, input, {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import { getAllParticipantes } from '../graphql/queries';
+import { GET_ALL_PARTICIPANTES } from '../graphql/queries';
 
 const Participantes = () => (
   <Query
-    query={getAllParticipantes}
+    query={GET_ALL_PARTICIPANTES}
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Buscando participantes...</p>;
