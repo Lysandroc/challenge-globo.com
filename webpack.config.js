@@ -28,14 +28,16 @@ module.exports = {
     ],
   },
   resolve: {
+    mainFields: ['browser', 'main', 'module'],
     extensions: ['.js', '.jsx', '.css']
   },
   devServer: {
     port: 8080,
     open: true,
     proxy: {
+      '/graphql': 'http://localhost:3001/graphql',
+      '/api': 'http://localhost:3001/',
       '/': 'http://localhost:3001/dist/index.html',
-      '/api': 'http://localhost:3001/'
     }
   },
   plugins: [

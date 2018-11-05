@@ -12,7 +12,7 @@ const typeDefs = `
     nome: String!
     idade: Int
    }
-  type Mutation {
+  extend type Mutation {
     createParticipante(input: ParticipanteInput) : Participante
     updateParticipante(_id: ID!, input: ParticipanteInput): Participante
     deleteParticipante(_id: ID!) : Participante

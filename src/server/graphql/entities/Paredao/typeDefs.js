@@ -14,7 +14,7 @@ const typeDefs = `
     nome: String!
     idade: Int
    }
-  type Mutation {
+  extend type Mutation {
     createParedao(input: ParedaoInput) : Paredao
     deleteParedao(_id: ID!) : Paredao
    }
