@@ -3,6 +3,7 @@
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
 
+### No boilerplate was used. It was necessary to configure the project manually.
 ## Installation
 
 **Clone this repo:**

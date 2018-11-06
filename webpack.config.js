@@ -9,7 +9,8 @@ module.exports = {
   entry: './src/client',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, outputDirectory)
+    path: path.resolve(__dirname, outputDirectory),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -33,12 +34,12 @@ module.exports = {
   },
   devServer: {
     port: 8080,
+    host: 'localhost',
     open: true,
     proxy: {
       '/graphql': 'http://localhost:3001/graphql',
-      '/api': 'http://localhost:3001/',
-      '/': 'http://localhost:3001/dist/index.html',
-    }
+    },
+    historyApiFallback: { index: '/' },
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),

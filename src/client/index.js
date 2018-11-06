@@ -7,6 +7,7 @@ import App from './components/App';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
+  uri: 'http://localhost:3001/graphql',
 });
 
 const WrappedApp = (

@@ -10,4 +10,10 @@ RUN npm install
 
 COPY . /app
 
-CMD ["npm","start"]
+CMD ["npm","run", "build"]
+
+FROM nginx:1.15.2-alpine as nginx-app
+
+COPY --from=node-app /app/dist /var/www
+
+COPY nginx.conf /etc/nginx/nginx.conf

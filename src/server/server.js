@@ -11,6 +11,7 @@ import helmet from 'helmet';
 import graphqlHTTP from 'express-graphql';
 import routes from './restful/routes';
 import graphqlSchema from './graphql';
+import { nextTick } from 'async';
 
 const Store = connectMongo(session);
 const app = express();
@@ -26,7 +27,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('dist'));
 app.use(compression());
 app.use(session({
   saveUninitialized: true,

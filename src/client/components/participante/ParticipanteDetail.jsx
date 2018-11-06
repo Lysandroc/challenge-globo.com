@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled.style`
+const Wrapper = styled.div`
   
 `;
 
-const ParticipanteDetalhe = ({
+const ParticipanteDetail = ({
   detalhe: {
     _id,
     nome,
@@ -19,7 +19,7 @@ const ParticipanteDetalhe = ({
   </Wrapper>
 );
 
-ParticipanteDetalhe.propTypes = {
+ParticipanteDetail.propTypes = {
   detalhe: PropTypes.shape({
     _id: PropTypes.string,
     nome: PropTypes.string,
@@ -28,4 +28,4 @@ ParticipanteDetalhe.propTypes = {
   }).isRequired,
 };
 
-export default ParticipanteDetalhe;
+export default ParticipanteDetail;
