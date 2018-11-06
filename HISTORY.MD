@@ -38,7 +38,8 @@ $ npm install
 $ npm run dev
 ```
 > This command listen your code and every changes will update the app. (Livereload)
-**Deployed to a container**
+
+**Deploy to a container**
 ```bash
 $ docker build app
 $ docker build build
