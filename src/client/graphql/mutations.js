@@ -24,8 +24,8 @@ export const DELETE_PARTICIPANTE = gql`
 `;
 
 export const INCREMENT_VOTACAO_PARTICIPANTE = gql`
-  mutation {
-    incrementVotosParedaoParticipante(_id: "5bdcb6fd1b2d1f1fc5ec3675"), {
+  mutation($_id: ID!) {
+    incrementVotosParedaoParticipante(_id: $_id), {
       _id,
       nome,
       idade,

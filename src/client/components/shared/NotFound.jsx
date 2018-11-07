@@ -5,6 +5,6 @@ const Wrapper = styled.div`
   display: block;
 `;
 
-const NotFound = () => <Wrapper>A página informada não existe. :(</Wrapper>;
+const NotFound = () => <Wrapper>404 - Pagina não encontrada</Wrapper>;
 
 export default NotFound;

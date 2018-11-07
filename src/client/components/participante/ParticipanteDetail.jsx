@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-  
+  font-weight: bold;
+  color: palevioletred;
 `;
 
 const ParticipanteDetail = ({
@@ -11,13 +12,22 @@ const ParticipanteDetail = ({
     _id,
     nome,
     idade,
-    quantidadeVotosUltimoParedao = 0
+    quantidadeVotosUltimoParedao
   }
-}) => (
-  <Wrapper key={_id}>
-    <p>{`${nome}: ${idade} ${quantidadeVotosUltimoParedao}`}</p>
-  </Wrapper>
-);
+}) => {
+  const shouldDisplayVotos = !!quantidadeVotosUltimoParedao || quantidadeVotosUltimoParedao === 0;
+  return (
+    <Wrapper key={_id}>
+      <div>
+        {` 
+          ${nome}
+          ${idade}
+          ${shouldDisplayVotos ? quantidadeVotosUltimoParedao : ''}
+        `}
+      </div>
+    </Wrapper>
+  );
+};
 
 ParticipanteDetail.propTypes = {
   detalhe: PropTypes.shape({

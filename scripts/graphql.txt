@@ -79,3 +79,9 @@ mutation {
     }
   }
 }
+
+mutation {
+  incrementVotosParedaoParticipante(_id: "5be1a5668e24f00b001250f4") {
+    nome,idade,quantidadeVotosUltimoParedao,_id
+  }
+}

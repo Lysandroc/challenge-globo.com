@@ -13,46 +13,47 @@ $ git clone git@github.com:SelecaoGlobocom/Lysandro_Braga.git
 $ cd Lysandro_Braga
 ```
 
-**Install docker to run a container (not required at dev env):**
+**Install Docker (not required at dev env):**
 
 Linux
 ```bash
-$ sudo apt-get install docker docker-compose
+$ sudo apt-get install git -y
+$ chmod +x ./scripts/configure.sh
+$ ./scripts/configure.sh
 ```
 
 macOs
 ```bash
-$ brew install docker
-```
-
-**Install the dependencies:**
-
-```bash
-$ npm install
+brew cask install git
+brew cask install docker
 ```
 
 ## Development Workflow
 
+**Start a development server**
 
-**Start a live-reload development server**
 ```bash
 $ npm run dev
 ```
-> This command listen your code and every changes will update the app. (Livereload)
+> Frontend runs at http://localhost:8080/
+> Backend runs at http://localhost:3001/
 
 **Deploy to a container**
 ```bash
-$ docker build app
-$ docker build build
+$ docker build 
+$ docker up
 ```
-or (if you prefer to be quick)
+or
 ```bash
 $ npm run docker
 ```
-> This deploy the app to a container that runs nodejs and mongodb
+> This deploy the app to a container that runs mongodb, nodejs and nginx
 
-## Decisões
-> 
+## Decisions
+> I decided to create an endpoint with graphql to transfer only necessary data, this is useful when the user are using 3G connections, Graphql creates a modeling of date used by application. Because that apis in expressjs was deprecated.
+
+## TODO
+> I neeed to upload the images to cloudinary and add the link to a document, from there we will load the images from SaaS.
 
 ## License
 
