@@ -50,7 +50,7 @@ $ npm run docker
 > This deploy the app to a container that runs mongodb, nodejs and nginx
 
 ## Decisions
-> I decided to create an endpoint with graphql to transfer only necessary data, this is useful when the user are using 3G connections, Graphql creates a modeling of date used by application. Because that apis in expressjs was deprecated.
+> I decided to create an endpoint with graphql to transfer only necessary data, this is useful when the user are using 3G connections. Graphql creates a modeling of data (this is like a swagger, but more sophisticated) used by application, because that apis in expressjs was deprecated.
 
 ## TODO
 > I neeed to upload the images to cloudinary and add the link to a document, from there we will load the images from SaaS.
