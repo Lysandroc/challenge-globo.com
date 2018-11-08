@@ -11,7 +11,6 @@ import helmet from 'helmet';
 import graphqlHTTP from 'express-graphql';
 import routes from './restful/routes';
 import graphqlSchema from './graphql';
-import { nextTick } from 'async';
 
 const Store = connectMongo(session);
 const app = express();

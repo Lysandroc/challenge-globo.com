@@ -33,7 +33,7 @@ brew cask install docker
 **Start a development server**
 
 ```bash
-$ npm run dev
+$ npm start
 ```
 > Frontend runs at http://localhost:8080/
 > Backend runs at http://localhost:3001/
@@ -52,8 +52,14 @@ $ npm run docker
 ## Decisions
 > I decided to create an endpoint with graphql to transfer only necessary data, this is useful when the user are using 3G connections. Graphql creates a modeling of data (this is like a swagger, but more sophisticated) used by application, because that apis in expressjs was deprecated.
 
+## What I did
+> Created all crud api methods for Participante e Paredao
+> Created all crud graphql mutations/query for Participante e Paredao
+> Created containers to scale separate part of application
+
 ## TODO
 > I neeed to upload the images to cloudinary and add the link to a document, from there we will load the images from SaaS.
+> Do script to insert all data to vote rapidly
 
 ## License
 
