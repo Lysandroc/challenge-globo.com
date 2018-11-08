@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Query, Mutation } from 'react-apollo';
-import { Row, Jumbotron, Button} from 'reactstrap';
+import { Row, Jumbotron, Button } from 'reactstrap';
 import styled from 'styled-components';
 import { GET_LASTEST_PAREDAO } from '../graphql/queries';
 import { INCREMENT_VOTACAO_PARTICIPANTE } from '../graphql/mutations';
@@ -20,11 +20,15 @@ const Hr = styled.hr`
   height: 2px;
 `;
 
+const Footer = styled.div`
+  padding-top: 15px
+`;
+
 class Votacao extends PureComponent {
   render() {
     return (
       <div>
-        <Title> (icon) QUEM DEVE SER ELIMINADO?</Title>
+        <Title>QUEM DEVE SER <strong>ELIMINADO</strong>?</Title>
         <Hr />
         <Row className="justify-content-center">
           <Query query={GET_LASTEST_PAREDAO}>
@@ -42,7 +46,7 @@ class Votacao extends PureComponent {
                     {(action) => {
                       console.log('aqui tem configurar o state para atualizar votacao');
                       return (
-                        <VotacaoDetail key={_id} detail={{ ...detalhe, index }} />
+                        <VotacaoDetail key={_id} detail={{ ...detalhe, index, selected: index }} />
                       );
                     }}
                   </Mutation>
@@ -51,11 +55,11 @@ class Votacao extends PureComponent {
             }}
           </Query>
         </Row>
-        <Jumbotron fluid>
-          <div className="text-center">
+        <Footer className="text-center">
+          <Jumbotron>
             <Button color="primary">Envie seu voto agora</Button>
-          </div>
-        </Jumbotron>
+          </Jumbotron>
+        </Footer>
       </div>
     );
   }

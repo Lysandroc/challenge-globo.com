@@ -4,6 +4,12 @@
 - [Development Workflow](#development-workflow)
 
 ### No boilerplate was used. It was necessary to configure the project manually.
+### this project contains: Docker, Nginx, MongoDB, Node, Express, Webpack, GraphQL and React.
+
+## Screen
+
+![](votingscreen.png)
+
 ## Installation
 
 **Clone this repo:**
