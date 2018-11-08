@@ -5,11 +5,14 @@ import {
   Card,
   CardImg,
   CardText,
-  CardBody,
   CardTitle,
-  CardSubtitle,
 } from 'reactstrap';
+import styled from 'styled-components';
 import pad from 'pad-left';
+
+const Bold = styled.strong`
+  font-weight: bold;
+`;
 
 const VotacaoDetail = ({
   detail: {
@@ -18,11 +21,18 @@ const VotacaoDetail = ({
     index,
   }
 }) => (
-  <Col sm="6" key={_id}>
+  <Col sm="3" key={_id} className="teste">
     <Card body>
       <CardTitle>{nome}</CardTitle>
+      <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=40&txt=300x300&w=300&h=300" alt={nome} />
       <CardText>
-        Para eliminar o participante {nome} pelo telefone disque 0800-123-{pad(index+1, 3, '0')} ou mande SMS para 8{pad(index+1, 3, '0')}.
+        <small className="text-muted">
+          Para eliminar o participante 
+          <Bold> {nome} </Bold> pelo telefone disque 
+          <Bold> 0800-123-{pad(index+1, 3, '0')} </Bold> ou mande SMS para 
+          <Bold> 8{pad(index+1, 3, '0')}</Bold>
+          .
+        </small>
       </CardText>
     </Card>
   </Col>

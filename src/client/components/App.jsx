@@ -4,12 +4,14 @@ import Votacao from './Votacao';
 import NotFound from './NotFound';
 
 const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Votacao} />
-      <Route component={NotFound} />
-    </Switch>
-  </BrowserRouter>
+  <div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Votacao} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  </div>
 );
 
 export default App;

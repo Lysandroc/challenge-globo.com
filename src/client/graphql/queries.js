@@ -31,7 +31,8 @@ export const GET_LASTEST_PAREDAO = gql`
       tempoInicio, 
       tempoFim, 
       participantes {
-        idade
+        nome,
+        _id
       }
     }
   }

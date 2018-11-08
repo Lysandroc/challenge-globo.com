@@ -37,7 +37,8 @@
     "react-apollo": "^2.2.4",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
-    "reactstrap": "^6.5.0"
+    "reactstrap": "^6.5.0",
+    "styled-components": "^4.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
