@@ -11,8 +11,10 @@ services:
       dockerfile: dockerfile
     expose:
      - 3001
+     - 9615
     ports:
      - "3001:3001"
+     - "9615:9615"
     environment:
      - MONGODB_URI=mongodb://mongo:27017/app 
      - PORT=3001

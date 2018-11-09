@@ -3,13 +3,27 @@ import styled from 'styled-components';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const FooterContainer = styled.div`
   padding-top: 15px
 `;
 
 const ButtonValidated = ({ action, _id }) => {
-  if (action) return (<Link to={`/resultado/${_id}`}><Button color="primary" onClick={action}>Envie seu voto agora</Button></Link>);
+  const recaptchaRef = React.createRef();
+
+  if (action) {
+    return (
+      <Link to={`/resultado/${_id}`}>
+        <Button color="primary" onClick={(() => (action && recaptchaRef.current.execute)())}> Envie seu voto agora</Button>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          size="invisible"
+          sitekey="6Lelz3kUAAAAAAxrDHv5tD50AinwcJpWN6mb4z3Y"
+        />
+      </Link>
+    );
+  }
   return (<Button color="grey">Para votar basta clicar em um canditato.</Button>);
 };
 

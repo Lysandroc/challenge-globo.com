@@ -63,6 +63,7 @@ or
 $ npm run docker
 ```
 > This deploy the app to a container that runs mongodb, nodejs and nginx
+
 > Inside dockerfile.front there are a command that insert mock data too
 
 ## Decisions
@@ -70,12 +71,18 @@ $ npm run docker
 
 ## What I did
 > Created all crud api methods for Participante e Paredao
+
 > Created all crud graphql mutations/query for Participante e Paredao
+
 > Created containers to scale separate part of application
 
-## TODO
+## What needs to be improved
+
 > I neeed to upload the images to cloudinary and add the link to a document, from there we will load the images from SaaS.
-> Do script to insert all data to vote rapidly
+
+> Create test to graphql(server side) and react(client side) components both can be made by jest
+
+> Create a token authentication to prevent data be modified on server from users
 
 ## License
 

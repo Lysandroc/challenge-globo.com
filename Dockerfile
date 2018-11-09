@@ -5,9 +5,9 @@ ENV NODE_ENV production
 
 COPY package.json /app/package.json
 
-RUN npm i -g nodemon
+RUN npm install pm2 -g
 RUN npm install
 
 COPY . /app
 
-CMD ["npm","run", "server"]
+CMD ["pm2-runtime", "src/server/start.js", "-i", "3"]
