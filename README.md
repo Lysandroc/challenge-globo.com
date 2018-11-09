@@ -3,6 +3,8 @@ Desafio de Desenvolvimento - Plataforma de Publicação
 
 **Globo.com: coding challenge**
 
+HISTORY.MD possui todos os detalhes do projeto de como foi desenvolvido. Lá também possui todas as informações para rodar o projeto.
+
 ====================
 #### Considerações Gerais
 Você deverá usar este repositório como o repo principal do projeto, i.e.,

@@ -45,12 +45,13 @@ brew cask install docker
 ```bash
 $ npm start
 ```
+> You need to run MongoDB at 27017
 > Frontend runs at http://localhost:8080/
 > Backend runs at http://localhost:3001/
 
 **Deploy to a container**
 ```bash
-$ docker build 
+$ docker build
 $ docker up
 ```
 or

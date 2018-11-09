@@ -54,7 +54,8 @@ class VotacaoDetail extends React.Component {
         nome,
         index
       },
-      selected
+      selected,
+      showText,
     } = this.props;
 
     return (
@@ -63,15 +64,17 @@ class VotacaoDetail extends React.Component {
           <Card body>
             <CardTitle>{nome}</CardTitle>
             <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=40&txt=300x300&w=350&h=350" alt={nome} />
-            <CardText>
-              <small className="text-muted">
-                Para eliminar o participante 
-                <strong> {nome} </strong> pelo telefone disque 
-                <strong> 0800-123-{pad(index+1, 3, '0')} </strong> ou mande SMS para 
-                <strong> 8{pad(index+1, 3, '0')}</strong>
-                .
-              </small>
-            </CardText>
+            { showText && (
+              <CardText>
+                <small className="text-muted">
+                  Para eliminar o participante
+                  <strong> {nome} </strong> pelo telefone disque
+                  <strong> 0800-123-{pad(index + 1, 3, '0')} </strong> ou mande SMS para
+                  <strong> 8{pad(index + 1, 3, '0')}</strong>
+                  .
+                </small>
+              </CardText>
+            )}
           </Card>
         </CardBordered>
       </Col>
@@ -88,11 +91,13 @@ VotacaoDetail.propTypes = {
   }).isRequired,
   selected: PropTypes.bool,
   action: PropTypes.func,
+  showText: PropTypes.bool,
   callback: PropTypes.func,
 };
 
 VotacaoDetail.defaultProps = {
   selected: false,
+  showText: true,
   action: null,
   callback: null,
 };
