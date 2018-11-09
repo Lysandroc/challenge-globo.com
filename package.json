@@ -9,7 +9,7 @@
     "build": "webpack",
     "server": "nodemon src/server/start.js",
     "lint": "eslint \"**/*.js\"",
-    "docker": "concurrently \"docker-compose build\" \"docker-compose up\""
+    "docker": "docker-compose build && docker-compose up"
   },
   "dependencies": {
     "apollo-boost": "^0.1.20",

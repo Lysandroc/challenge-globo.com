@@ -30,7 +30,7 @@ const Chart = () => (
           data={chart}
           width={300}
           height={300}
-          options={{ maintainAspectRatio: false }} 
+          options={{ maintainAspectRatio: false }}
         />
       );
     }}

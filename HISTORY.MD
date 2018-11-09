@@ -28,8 +28,8 @@ $ cd Lysandro_Braga
 Linux
 ```bash
 $ sudo apt-get install git -y
-$ chmod +x ./scripts/configure.sh
-$ ./scripts/configure.sh
+$ wget -O - https://gist.githubusercontent.com/wdullaer/f1af16bd7e970389bad3/raw/install.sh | bash
+$ service docker start
 ```
 
 macOs
@@ -46,13 +46,15 @@ brew cask install docker
 $ npm start
 ```
 > You need to run MongoDB at 27017
+
 > Frontend runs at http://localhost:8080/
+
 > Backend runs at http://localhost:3001/
 
 **Deploy to a container**
 ```bash
-$ docker build
-$ docker up
+$ sudo docker-compose build
+$ sudo docker-compose up
 ```
 or
 ```bash

@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . /app
 
-RUN npm run server
+CMD ["npm","run", "server"]
