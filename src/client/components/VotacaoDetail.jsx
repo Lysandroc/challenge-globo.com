@@ -86,9 +86,15 @@ VotacaoDetail.propTypes = {
     idade: PropTypes.number,
     quantidadeVotosUltimoParedao: PropTypes.number,
   }).isRequired,
-  selected: PropTypes.bool.isRequired,
-  action: PropTypes.func.isRequired,
-  callback: PropTypes.func.isRequired,
+  selected: PropTypes.bool,
+  action: PropTypes.func,
+  callback: PropTypes.func,
+};
+
+VotacaoDetail.defaultProps = {
+  selected: false,
+  action: null,
+  callback: null,
 };
 
 export default VotacaoDetail;

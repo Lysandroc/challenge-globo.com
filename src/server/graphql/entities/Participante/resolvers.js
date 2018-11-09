@@ -3,7 +3,7 @@ import Participante from '../../../models/participanteModel';
 
 export const resolver = {
   Query: {
-    async getParticipanteById(root, { _id }) {
+    async ParticipanteById(root, { _id }) {
       const r = await Participante.findById(_id);
       return r;
     },

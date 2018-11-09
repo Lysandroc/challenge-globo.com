@@ -1,6 +1,6 @@
 export const typeDefs = `
   extend type Query {
-    getParticipanteById(_id: ID!): Participante
+    ParticipanteById(_id: ID!): Participante
     getAllParticipantes: [Participante]
   }
   type Participante {

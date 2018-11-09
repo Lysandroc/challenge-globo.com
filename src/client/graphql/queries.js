@@ -17,9 +17,9 @@ export const GET_PARTICIPANTES_VOTACAO = gql`
 `;
 
 export const GET_PARTICIPANTE = gql`
-  {
-    getParticipanteById(_id: "5bdcb6fd1b2d1f1fc5ec3675") {
-      idade,nome,_id
+  query($_id: ID!){
+    ParticipanteById(_id: $_id) {
+      nome, _id, idade, quantidadeVotosUltimoParedao
     }
   }
 `;
@@ -31,8 +31,9 @@ export const GET_LASTEST_PAREDAO = gql`
       tempoInicio, 
       tempoFim, 
       participantes {
+        _id,
         nome,
-        _id
+        quantidadeVotosUltimoParedao,
       }
     }
   }

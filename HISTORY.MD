@@ -8,8 +8,12 @@
 
 ## Screen
 
+Screen to VOTE -> scenario 1 selected
 ![](votingscreen.png)
-
+Screen to VOTE -> scenario 2 not selected
+![](candidateNotSelected.png)
+Screen to see RESULT -> scenario 1
+![](screenResult.png)
 ## Installation
 
 **Clone this repo:**
