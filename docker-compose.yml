@@ -7,7 +7,7 @@ services:
      - .:/app
      - /node_modules
     build:
-      context: .
+      context: "."
       dockerfile: dockerfile
     expose:
      - 3001
@@ -24,7 +24,7 @@ services:
      - mongo
   front:
     build: 
-      context: .
+      context: "."
       dockerfile: dockerfile.front
     expose:
      - 8080

@@ -45,6 +45,8 @@ brew cask install docker
 ```bash
 $ npm start
 ```
+> I've created an script that insert data, use app without being concerned about the data.   
+
 > You need to run MongoDB at 27017
 
 > Frontend runs at http://localhost:8080/
@@ -61,6 +63,7 @@ or
 $ npm run docker
 ```
 > This deploy the app to a container that runs mongodb, nodejs and nginx
+> Inside dockerfile.front there are a command that insert mock data too
 
 ## Decisions
 > I decided to create an endpoint with graphql to transfer only necessary data, this is useful when the user are using 3G connections. Graphql creates a modeling of data (this is like a swagger, but more sophisticated) used by application, because that apis in expressjs was deprecated.

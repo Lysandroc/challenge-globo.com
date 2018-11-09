@@ -27,6 +27,7 @@
     "express-session": "^1.15.6",
     "express-status-monitor": "^1.1.5",
     "graphql": "^14.0.2",
+    "graphql-request": "^1.8.2",
     "graphql-tag": "^2.10.0",
     "graphql-tools": "^4.0.3",
     "helmet": "^3.14.0",

@@ -11,6 +11,8 @@ import helmet from 'helmet';
 import graphqlHTTP from 'express-graphql';
 import routes from './restful/routes';
 import graphqlSchema from './graphql';
+// temporary script to mock data
+import { mock } from '../../scripts/mockParedao';
 
 const Store = connectMongo(session);
 const app = express();
@@ -56,4 +58,7 @@ app.use('/api', router);
 
 app.listen(app.get('port'), () => {
   console.log('%s Aplicação está rodando em http://localhost:%s ☕', chalk.green('✓'), app.get('port'), app.get('env'));
+
+  // Create temporary data
+  mock();
 });
