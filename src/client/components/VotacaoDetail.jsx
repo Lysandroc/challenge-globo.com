@@ -18,32 +18,66 @@ const CardBordered = styled.div`
   background-color: ${props => props.selected ? 'darkorange' : ''};
 `;
 
-const VotacaoDetail = ({
-  detail: {
-    _id,
-    nome,
-    index,
-    selected
+class VotacaoDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleClick = this.handleClick.bind(this);
   }
-}) => (
-    <Col sm="3" key={_id}>
-      <CardBordered selected={selected}>
-        <Card body>
-          <CardTitle>{nome}</CardTitle>
-          <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=40&txt=300x300&w=350&h=350" alt={nome} />
-          <CardText>
-            <small className="text-muted">
-              Para eliminar o participante 
-              <strong> {nome} </strong> pelo telefone disque 
-              <strong> 0800-123-{pad(index+1, 3, '0')} </strong> ou mande SMS para 
-              <strong> 8{pad(index+1, 3, '0')}</strong>
-              .
-            </small>
-          </CardText>
-        </Card>
-      </CardBordered>
-    </Col>
-);
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick);
+  }
+
+  handleClick(e) {
+    const {
+      detail: {
+        _id,
+      },
+      action,
+      callback
+    } = this.props;
+
+    if (this.node.contains(e.target)) {
+      callback(_id, action);
+    }
+  }
+
+  render() {
+    const {
+      detail: {
+        _id,
+        nome,
+        index
+      },
+      selected
+    } = this.props;
+
+    return (
+      <Col sm="3" key={_id}>
+        <CardBordered selected={selected} ref={(node) => { this.node = node; }}>
+          <Card body>
+            <CardTitle>{nome}</CardTitle>
+            <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=40&txt=300x300&w=350&h=350" alt={nome} />
+            <CardText>
+              <small className="text-muted">
+                Para eliminar o participante 
+                <strong> {nome} </strong> pelo telefone disque 
+                <strong> 0800-123-{pad(index+1, 3, '0')} </strong> ou mande SMS para 
+                <strong> 8{pad(index+1, 3, '0')}</strong>
+                .
+              </small>
+            </CardText>
+          </Card>
+        </CardBordered>
+      </Col>
+    );
+  }
+}
 
 VotacaoDetail.propTypes = {
   detail: PropTypes.shape({
@@ -52,6 +86,9 @@ VotacaoDetail.propTypes = {
     idade: PropTypes.number,
     quantidadeVotosUltimoParedao: PropTypes.number,
   }).isRequired,
+  selected: PropTypes.bool.isRequired,
+  action: PropTypes.func.isRequired,
+  callback: PropTypes.func.isRequired,
 };
 
 export default VotacaoDetail;

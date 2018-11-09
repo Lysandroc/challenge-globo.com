@@ -1,10 +1,11 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Query, Mutation } from 'react-apollo';
-import { Row, Jumbotron, Button } from 'reactstrap';
+import { Row } from 'reactstrap';
 import styled from 'styled-components';
 import { GET_LASTEST_PAREDAO } from '../graphql/queries';
 import { INCREMENT_VOTACAO_PARTICIPANTE } from '../graphql/mutations';
 import VotacaoDetail from './VotacaoDetail';
+import Footer from './Footer';
 
 const Title = styled.h4`
   text-align: center;
@@ -20,11 +21,17 @@ const Hr = styled.hr`
   height: 2px;
 `;
 
-const Footer = styled.div`
-  padding-top: 15px
-`;
+class Votacao extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.selectCard = this.selectCard.bind(this);
+  }
 
-class Votacao extends PureComponent {
+  selectCard(_id, action) {
+    this.setState({ _id, action });
+  }
+
   render() {
     return (
       <div>
@@ -46,7 +53,13 @@ class Votacao extends PureComponent {
                     {(action) => {
                       console.log('aqui tem configurar o state para atualizar votacao');
                       return (
-                        <VotacaoDetail key={_id} detail={{ ...detalhe, index, selected: index }} />
+                        <VotacaoDetail
+                          key={_id}
+                          detail={{ ...detalhe, index, }}
+                          selected={this.state._id === _id}
+                          action={action}
+                          callback={this.selectCard}
+                        />
                       );
                     }}
                   </Mutation>
@@ -55,11 +68,7 @@ class Votacao extends PureComponent {
             }}
           </Query>
         </Row>
-        <Footer className="text-center">
-          <Jumbotron>
-            <Button color="primary">Envie seu voto agora</Button>
-          </Jumbotron>
-        </Footer>
+        <Footer selectedCardState={this.state} />
       </div>
     );
   }
