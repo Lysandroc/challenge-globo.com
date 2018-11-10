@@ -13,8 +13,8 @@ const ButtonValidated = ({ action, _id }) => {
   const recaptchaRef = React.createRef();
 
   const f = (f1, f2) => {
-    f1();
-    f2();
+    if (f1) f1();
+    if (f2) f2();
   };
 
   if (action) {
