@@ -12,10 +12,15 @@ const FooterContainer = styled.div`
 const ButtonValidated = ({ action, _id }) => {
   const recaptchaRef = React.createRef();
 
+  const f = (f1, f2) => {
+    f1();
+    f2();
+  };
+
   if (action) {
     return (
       <Link to={`/resultado/${_id}`}>
-        <Button color="primary" onClick={(() => (action && recaptchaRef.current.execute)())}> Envie seu voto agora</Button>
+        <Button color="primary" onClick={f(action, recaptchaRef.current.execute)}> Envie seu voto agora</Button>
         <ReCAPTCHA
           ref={recaptchaRef}
           size="invisible"

@@ -9,7 +9,8 @@
     "build": "webpack",
     "server": "nodemon src/server/start.js",
     "lint": "eslint \"**/*.js\"",
-    "docker": "docker-compose build && docker-compose up"
+    "docker": "docker-compose build && docker-compose up",
+    "perfomance": "artillery run scripts/artillery.json"
   },
   "dependencies": {
     "apollo-boost": "^0.1.20",
@@ -47,6 +48,7 @@
     "styled-components": "^4.0.3"
   },
   "devDependencies": {
+    "artillery": "^1.6.0-25",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.5",

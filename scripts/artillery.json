@@ -1,0 +1,26 @@
+{
+    "config": {
+        "target": "http://localhost:3001",
+        "phases": [
+            {
+                "duration": 2,
+                "arrivalRate": 2000
+            }
+        ],
+        "defaults": {
+            "headers": {}
+        }
+    },
+    "scenarios": [
+        {
+            "name": "Consultar paredao atual",
+            "flow": [
+                {
+                    "get": {
+                        "url": "/graphql?query={ getLastestParedao { _id, tempoFim, participantes { idade, nome, quantidadeVotosUltimoParedao, _id } } }"
+                    }
+                }
+            ]
+        }
+    ]
+}
