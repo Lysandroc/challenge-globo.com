@@ -3,29 +3,16 @@ import styled from 'styled-components';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 const FooterContainer = styled.div`
   padding-top: 15px
 `;
 
 const ButtonValidated = ({ action, _id }) => {
-  const recaptchaRef = React.createRef();
-
-  const f = (f1, f2) => {
-    if (f1) f1();
-    if (f2) f2();
-  };
-
   if (action) {
     return (
       <Link to={`/resultado/${_id}`}>
-        <Button color="primary" onClick={f(action, recaptchaRef.current.execute)}> Envie seu voto agora</Button>
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          size="invisible"
-          sitekey="6Lelz3kUAAAAAAxrDHv5tD50AinwcJpWN6mb4z3Y"
-        />
+        <Button color="primary" onClick={action}> Envie seu voto agora</Button>
       </Link>
     );
   }
